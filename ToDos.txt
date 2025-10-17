@@ -1,0 +1,3 @@
+- Materials CSV, from 3 different Sources. Make clear where te info are from.
+- Convert all the python inpy into def 
+- make a list of all the data that has to be in the csv

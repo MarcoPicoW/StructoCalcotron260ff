@@ -10,7 +10,6 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
@@ -206,20 +205,6 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# Python stuff
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.venv/
-.env/
-*.egg-info/
-
-# Build outputs
-dist/
-build/
-*.log
-
 # LaTeX report builds
 *.aux
 *.out
@@ -233,3 +218,5 @@ build/
 .DS_Store
 Thumbs.db
 
+# Side projects that are not part of the main repo
+trasformatore_csv/

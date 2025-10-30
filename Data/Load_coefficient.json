@@ -1,0 +1,96 @@
+{
+  "Ständige Einwirkungen": {
+    "ungünstig wirkend": { 
+     "gamma_{G,sup}": { 
+      "Typ 1": 1.10, 
+      "Typ 2": 1.35, 
+      "Typ 3": 1.00 
+    } 
+    },
+    "günstig wirkend":   { 
+     "gamma_{G,inf}": { 
+      "Typ 1": 0.90, 
+      "Typ 2": 0.80, 
+      "Typ 3": 1.00 
+    } 
+    }
+  },
+  "Veränderliche Einwirkungen": {
+    "im Allgemeinen":           { 
+     "gamma_{Q}": { 
+      "Typ 1": 1.50, 
+      "Typ 2": 1.50, 
+      "Typ 3": 1.30 
+    } 
+    },
+    "Strassenverkehrslasten":   { 
+     "gamma_{Q}": { 
+      "Typ 1": 1.50, 
+      "Typ 2": 1.50, 
+      "Typ 3": 1.30 
+    } 
+    },
+    "Bahnverkehrslasten (LM 1,2,4 bis 7)": { 
+     "gamma_{Q}": { 
+      "Typ 1": 1.45, 
+      "Typ 2": 1.45, 
+      "Typ 3": 1.25 
+    } 
+    },
+    "Bahnverkehrslasten (LM 3)":           { 
+     "gamma_{Q}": { 
+      "Typ 1": 1.45, 
+      "Typ 2": 1.20, 
+      "Typ 3": 1.25 
+    } 
+    }
+  },
+  "Erdaulasten": {
+    "ungünstig wirkend": {
+      "gamma_{G,sup}": { 
+        "Typ 1": 1.10, 
+        "Typ 2": 1.35, 
+        "Typ 3": 1.00 
+      } 
+    },
+    "günstig wirkend":   {
+      "gamma_{G,inf}": { 
+        "Typ 1": 0.90, 
+        "Typ 2": 0.80, 
+        "Typ 3": 1.00 
+      } 
+    }
+  },
+  "Erddruck": {
+    "ungünstig wirkend": {
+      "gamma_{G,Q,sup}": { 
+        "Typ 1": 1.35, 
+        "Typ 2": 1.35, 
+        "Typ 3": 1.00 
+      } 
+    },
+    "günstig wirkend":   {
+      "gamma_{G,Q,inf}": { 
+        "Typ 1": 0.80, 
+        "Typ 2": 0.70, 
+        "Typ 3": 1.00 
+      } 
+    }
+  },
+  "Wasserdruck": {
+    "ungünstig wirkend": {
+      "gamma_{G,Q,sup}": { 
+        "Typ 1": 1.05, 
+        "Typ 2": 1.20, 
+        "Typ 3": 1.00 
+      } 
+    },
+    "günstig wirkend":   {
+      "gamma_{G,Q,inf}": { 
+        "Typ 1": 0.95, 
+        "Typ 2": 0.90, 
+        "Typ 3": 1.00 
+      } 
+    }
+  }
+}

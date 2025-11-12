@@ -1,0 +1,290 @@
+{
+  "results": [
+    {
+      "layerBodId": "ch.swisstopo.amtliches-strassenverzeichnis",
+      "layerName": "Amtliches Strassenverzeichnis",
+      "featureId": 10249150,
+      "id": 10249150,
+      "attributes": {
+        "str_esid": 10249150,
+        "stn_label": "A3",
+        "zip_label": "8038 Zürich",
+        "com_name": "Zürich",
+        "com_fosnr": 261,
+        "str_official": 1,
+        "str_modified": "2024-07-29",
+        "str_type": "Strasse",
+        "str_children": null,
+        "str_parent": null,
+        "str_status": "bestehend",
+        "label": "A3"
+      }
+    },
+    {
+      "layerBodId": "ch.swisstopo.amtliches-strassenverzeichnis",
+      "layerName": "Amtliches Strassenverzeichnis",
+      "featureId": 10059061,
+      "id": 10059061,
+      "attributes": {
+        "str_esid": 10059061,
+        "stn_label": "Dangelweg",
+        "zip_label": "8038 Zürich, 8041 Zürich",
+        "com_name": "Zürich",
+        "com_fosnr": 261,
+        "str_official": 1,
+        "str_modified": "2024-07-23",
+        "str_type": "Strasse",
+        "str_children": null,
+        "str_parent": null,
+        "str_status": "bestehend",
+        "label": "Dangelweg"
+      }
+    },
+    {
+      "layerBodId": "ch.swisstopo.swisstlm3d-strassen",
+      "layerName": "Strassen und Wege swissTLM3D",
+      "featureId": 37474108,
+      "id": 37474108,
+      "attributes": {
+        "strassenname": null,
+        "objektart": 2,
+        "belagsart": 100,
+        "verkehrsbedeutung": 100,
+        "eigentuemer": 100,
+        "verkehrsbeschraenkung": 100,
+        "label": 2
+      }
+    },
+    {
+      "layerBodId": "ch.swisstopo.swisstlm3d-strassen",
+      "layerName": "Strassen und Wege swissTLM3D",
+      "featureId": 37474109,
+      "id": 37474109,
+      "attributes": {
+        "strassenname": null,
+        "objektart": 2,
+        "belagsart": 100,
+        "verkehrsbedeutung": 100,
+        "eigentuemer": 100,
+        "verkehrsbeschraenkung": 100,
+        "label": 2
+      }
+    },
+    {
+      "layerBodId": "ch.swisstopo.swisstlm3d-strassen",
+      "layerName": "Strassen und Wege swissTLM3D",
+      "featureId": 37474108,
+      "id": 37474108,
+      "attributes": {
+        "strassenname": null,
+        "objektart": 2,
+        "belagsart": 100,
+        "verkehrsbedeutung": 100,
+        "eigentuemer": 100,
+        "verkehrsbeschraenkung": 100,
+        "label": 2
+      }
+    },
+    {
+      "layerBodId": "ch.swisstopo.swisstlm3d-strassen",
+      "layerName": "Strassen und Wege swissTLM3D",
+      "featureId": 37474109,
+      "id": 37474109,
+      "attributes": {
+        "strassenname": null,
+        "objektart": 2,
+        "belagsart": 100,
+        "verkehrsbedeutung": 100,
+        "eigentuemer": 100,
+        "verkehrsbeschraenkung": 100,
+        "label": 2
+      }
+    },
+    {
+      "layerBodId": "ch.swisstopo.swisstlm3d-strassen",
+      "layerName": "Strassen und Wege swissTLM3D",
+      "featureId": 37693864,
+      "id": 37693864,
+      "attributes": {
+        "strassenname": "Dangelweg",
+        "objektart": 11,
+        "belagsart": 100,
+        "verkehrsbedeutung": 999998,
+        "eigentuemer": 999997,
+        "verkehrsbeschraenkung": 100,
+        "label": 11
+      }
+    },
+    {
+      "layerBodId": "ch.swisstopo.swisstlm3d-strassen",
+      "layerName": "Strassen und Wege swissTLM3D",
+      "featureId": 37474108,
+      "id": 37474108,
+      "attributes": {
+        "strassenname": null,
+        "objektart": 2,
+        "belagsart": 100,
+        "verkehrsbedeutung": 100,
+        "eigentuemer": 100,
+        "verkehrsbeschraenkung": 100,
+        "label": 2
+      }
+    },
+    {
+      "layerBodId": "ch.swisstopo.swisstlm3d-strassen",
+      "layerName": "Strassen und Wege swissTLM3D",
+      "featureId": 37474109,
+      "id": 37474109,
+      "attributes": {
+        "strassenname": null,
+        "objektart": 2,
+        "belagsart": 100,
+        "verkehrsbedeutung": 100,
+        "eigentuemer": 100,
+        "verkehrsbeschraenkung": 100,
+        "label": 2
+      }
+    },
+    {
+      "layerBodId": "ch.swisstopo.swisstlm3d-strassen",
+      "layerName": "Strassen und Wege swissTLM3D",
+      "featureId": 37693864,
+      "id": 37693864,
+      "attributes": {
+        "strassenname": "Dangelweg",
+        "objektart": 11,
+        "belagsart": 100,
+        "verkehrsbedeutung": 999998,
+        "eigentuemer": 999997,
+        "verkehrsbeschraenkung": 100,
+        "label": 11
+      }
+    },
+    {
+      "layerBodId": "ch.swisstopo.swisstlm3d-strassen",
+      "layerName": "Strassen und Wege swissTLM3D",
+      "featureId": 37474108,
+      "id": 37474108,
+      "attributes": {
+        "strassenname": null,
+        "objektart": 2,
+        "belagsart": 100,
+        "verkehrsbedeutung": 100,
+        "eigentuemer": 100,
+        "verkehrsbeschraenkung": 100,
+        "label": 2
+      }
+    },
+    {
+      "layerBodId": "ch.swisstopo.swisstlm3d-strassen",
+      "layerName": "Strassen und Wege swissTLM3D",
+      "featureId": 37474109,
+      "id": 37474109,
+      "attributes": {
+        "strassenname": null,
+        "objektart": 2,
+        "belagsart": 100,
+        "verkehrsbedeutung": 100,
+        "eigentuemer": 100,
+        "verkehrsbeschraenkung": 100,
+        "label": 2
+      }
+    },
+    {
+      "layerBodId": "ch.swisstopo.swisstlm3d-strassen",
+      "layerName": "Strassen und Wege swissTLM3D",
+      "featureId": 37693864,
+      "id": 37693864,
+      "attributes": {
+        "strassenname": "Dangelweg",
+        "objektart": 11,
+        "belagsart": 100,
+        "verkehrsbedeutung": 999998,
+        "eigentuemer": 999997,
+        "verkehrsbeschraenkung": 100,
+        "label": 11
+      }
+    },
+    {
+      "layerBodId": "ch.astra.nationalstrassenachsen",
+      "layerName": "Nationalstrassenachsen",
+      "featureId": 1955632,
+      "id": 1955632,
+      "attributes": {
+        "eigentuemer": "CH",
+        "segmentname": "ZÜRICH-SÜD - SARGANSERLAND",
+        "strassennummer": "N3",
+        "bezeichnung": "Basel - Sargans",
+        "positionscode": "+",
+        "name": null,
+        "sortnr": null,
+        "kilometerwert": null,
+        "sektorlaenge": null,
+        "type_geom": "line",
+        "label": 1955632
+      }
+    },
+    {
+      "layerBodId": "ch.astra.nationalstrassenachsen",
+      "layerName": "Nationalstrassenachsen",
+      "featureId": 1960070,
+      "id": 1960070,
+      "attributes": {
+        "eigentuemer": "CH",
+        "segmentname": "ZÜRICH-SÜD - SARGANSERLAND",
+        "strassennummer": "N3",
+        "bezeichnung": "Basel - Sargans",
+        "positionscode": "-",
+        "name": null,
+        "sortnr": null,
+        "kilometerwert": null,
+        "sektorlaenge": null,
+        "type_geom": "line",
+        "label": 1960070
+      }
+    },
+    {
+      "layerBodId": "ch.bafu.grundwasserkoerper",
+      "layerName": "Grundwasserkörper",
+      "featureId": 533,
+      "id": 533,
+      "attributes": {
+        "gwkid": "CH5302",
+        "gwkname": "Zürichseetal",
+        "flussgebiet": "Limmat",
+        "grundwasserleitertyp": "Kluft-Grundwasserleiter",
+        "naturraum": "Mittelland",
+        "grundwasserregime": "pluvial",
+        "area": "370",
+        "label": "Zürichseetal"
+      }
+    },
+    {
+      "layerBodId": "ch.bafu.grundwasserkoerper",
+      "layerName": "Grundwasserkörper",
+      "featureId": 533,
+      "id": 533,
+      "attributes": {
+        "gwkid": "CH5302",
+        "gwkname": "Zürichseetal",
+        "flussgebiet": "Limmat",
+        "grundwasserleitertyp": "Kluft-Grundwasserleiter",
+        "naturraum": "Mittelland",
+        "grundwasserregime": "pluvial",
+        "area": "370",
+        "label": "Zürichseetal"
+      }
+    },
+    {
+      "layerBodId": "ch.bafu.sturm-boeenspitzen_30",
+      "layerName": "Sturmgefährdung Böenspitzen 30",
+      "featureId": 10645,
+      "id": 10645,
+      "attributes": {
+        "boenspitzen_kmh_30": "84 ± 20 km/h",
+        "boenspitzen_ms_30": "23 ± 6 m/s",
+        "label": 10645
+      }
+    }
+  ]
+}

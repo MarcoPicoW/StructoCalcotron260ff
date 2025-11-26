@@ -11,3 +11,6 @@ def v_Rd_nosteel(tau_cd,d,d_v,f_sd,f_ck,torque_rate = 1,E_s = 205000,D_max = 32)
 v_Rd_nosteel(tau_cd=1.2,d=590,d_v=560,f_sd=300,f_ck=35,torque_rate=0.68)
 v_Rd_nosteel(tau_cd=1.2,d=590,d_v=560,f_sd=300,f_ck=35,torque_rate=1.5)
 v_Rd_nosteel(tau_cd=1.2,d=350,d_v=300,f_sd=300,f_ck=35,torque_rate=1.5)
+
+if __name__ == "__main__":
+    v_Rd_nosteel()

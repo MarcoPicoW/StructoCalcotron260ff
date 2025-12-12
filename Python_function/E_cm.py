@@ -1,4 +1,4 @@
-def E_cm(f_cm, k_E=10000):
+def calculate_E_cm(f_cm, k_E=10000):
     """Calculate the modulus of elasticity of concrete E_cm in MPa.
 
     Parameters:

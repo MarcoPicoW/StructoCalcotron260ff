@@ -25,6 +25,7 @@ def calculate_u(d_v,type,diameter=0, width=0, height=0, distance=0):
         raise ValueError("Invalid type. Please choose from '22a', '22b', '22d', '23b', or '23c'.")
     return u
 
+
 def calculate_psi(r_s,d,m_sd,m_Rd,f_sd = 435 ,E_s = 205000):
     """Calculate the reduction factor 'psi' for steel reinforcement.
      Args:

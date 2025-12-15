@@ -1,4 +1,4 @@
-def v_Rd_nosteel(tau_cd,d,d_v,f_ck,f_sd = 435,torque_rate = 1,E_s = 205000,D_max = 32, width = 0):
+def calculate_v_Rd_nosteel(tau_cd,d,d_v,f_ck,f_sd = 435,torque_rate = 1,E_s = 205000,D_max = 32, width = 0):
     """Calculate the punching shear resistance v_Rd in kN/m without shear reinforcement.
     Parameters:
     tau_cd : float
@@ -22,8 +22,8 @@ def v_Rd_nosteel(tau_cd,d,d_v,f_ck,f_sd = 435,torque_rate = 1,E_s = 205000,D_max
     """
     k_g = max(1.2,48/(16+(D_max*min(1,(60/f_ck)**2))))
     varepsilon_v = (f_sd/E_s)*torque_rate
-    k_d = 1/(1+(varepsilon_v*d*k_g))
-    v_Rd = k_d * tau_cd * d_v
+    k_d = 1/(1+(varepsilon_v*d*1000*k_g))
+    v_Rd = k_d * tau_cd *1000 * d_v
     print("Epsilon=",varepsilon_v,"\nk_d =", k_d)
     print(f"v_Rd = {round(v_Rd,2)} kN/m'")
     if width != 0:
@@ -31,4 +31,4 @@ def v_Rd_nosteel(tau_cd,d,d_v,f_ck,f_sd = 435,torque_rate = 1,E_s = 205000,D_max
 
 
 if __name__ == "__main__":
-    v_Rd_nosteel()
+    calculate_v_Rd_nosteel

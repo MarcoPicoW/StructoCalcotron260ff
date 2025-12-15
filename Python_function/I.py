@@ -1,4 +1,10 @@
 def I_rectangle(b,h):
+    """Calculates the second moment of area for a rectangular cross-section.
+    Parameters:
+    b : float
+        width of the rectangle in m
+    h : float
+        height of the rectangle in m"""
     I_y = (b*h**3)/12
     I_z = (h*b**3)/12
     print("I_y =", I_y,"m^4")

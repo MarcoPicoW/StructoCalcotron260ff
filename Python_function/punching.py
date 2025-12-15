@@ -10,17 +10,17 @@ def calculate_u(d_v,type,diameter=0, width=0, height=0, distance=0):
     Returns:
         float: The calculated perimeter 'u' in m.
          """
-    import math
+    from math import pi
     if type == "22a":
-        u = (d_v + diameter) * math.pi
+        u = (d_v + diameter) * pi
     elif type == "22b":
-        u = 2 * (width + height) + math.pi * d_v
+        u = 2 * (width + height) + pi * d_v
     elif type == "22d":
-        u = (2 * width) + height +( 0.5 * math.pi * d_v) + (2 * distance)
+        u = (2 * width) + height +( 0.5 * pi * d_v) + (2 * distance)
     elif type == "23b":
-        u = 3 * d_v + width + ( 0.5 * math.pi * d_v)
+        u = 3 * d_v + width + ( 0.5 * pi * d_v)
     elif type == "23c":
-        u = 3 * d_v +  ( 0.25 * math.pi * d_v)
+        u = 3 * d_v +  ( 0.25 * pi * d_v)
     else:
         raise ValueError("Invalid type. Please choose from '22a', '22b', '22d', '23b', or '23c'.")
     return u
@@ -58,9 +58,47 @@ def calculate_k_r(d,psi,k_g):
     Returns:
         float: The calculated coefficient k_r.
     """
-    k_r = min(1 /(0.45 + (0.18 * psi * d * k_g )), 2)
+    k_r = min(1 /(0.45 + (0.18 * psi * (d*1000) * k_g )), 2)
     return k_r
 
 def calculate_v_Rd_nosteel_punching(tau_cd,d_v,u,k_r):
-    v_Rd = k_r * tau_cd * d_v * u
+    """Calculate the punching shear resistance v_Rd without steel reinforcement.
+    Args:
+        tau_cd (float): Design shear stress in MPa.
+        d_v (float): Effective depth in meters.
+        u (float): Perimeter in meters.
+        k_r (float): Coefficient based on effective depth."""
+    v_Rd = k_r * tau_cd * 1000 * d_v * u
     return v_Rd
+def calculate_k_e(e_u,b):
+    """Calculate the coefficient k_e based on eccentricity and width.
+    for apporximation of punching Type 1 use:
+    k_e = 0.9 for inner columns
+    k_e = 0.75 for walls and walls edge
+    k_e = 0.7 for edge columns
+    k_e = 0.65 for corner columns
+    Args:
+        e_u (float): Eccentricity in meters.
+        b (float): is the diameter of a circle with the same area as the area inside the verification section.
+    Returns:
+        float: The calculated coefficient k_e.
+    """
+    k_e = min(1 + (3 * e_u / b), 2)
+    return k_e
+
+def calculate_b_s(r_sx,r_sy,l_x=0,l_y=0):
+    """Calculate the side length b_s for punching shear verification.
+    Args:
+        r_sx (float): Distance to the torque null point in the x-direction in meters.
+        r_sy (float): Distance to the torque null point in the y-direction in meters.
+        l_x (float, optional): Length of the support in the x-direction in meters. Default is 0.
+        l_y (float, optional): Length of the support in the y-direction in meters. Default is 0."""
+    from math import sqrt
+    b_s = 1.5 * sqrt(r_sx * r_sy)
+    if l_x != 0 and l_y != 0:
+        b_s = min(b_s,l_x,l_y)
+    if l_x != 0 and l_y == 0:
+        b_s = min(b_s,l_x)
+    if l_x == 0 and l_y != 0:
+        b_s = min(b_s,l_y)
+    return b_s

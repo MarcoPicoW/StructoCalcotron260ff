@@ -14,5 +14,5 @@ def calculate_E_cm(f_cm, k_E=10000):
         Modulus of elasticity of concrete E_cm in MPa.
     """
     E_cm = k_E * (f_cm) ** (1/3)
-    #print("E_cm =", E_cm, "MPa")
+    print("E_cm =", E_cm, "MPa")
     return E_cm

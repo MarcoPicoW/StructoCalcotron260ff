@@ -28,6 +28,7 @@ def calculate_v_Rd_nosteel(tau_cd,d,d_v,f_ck,f_sd = 435,torque_rate = 1,E_s = 20
     print(f"v_Rd = {round(v_Rd,2)} kN/m'")
     if width != 0:
         print(f"V_Rd({width}m) = {round(v_Rd,2)*width} kN")
+    return v_Rd
 
 
 if __name__ == "__main__":

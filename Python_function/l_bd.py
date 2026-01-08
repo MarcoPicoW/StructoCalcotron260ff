@@ -1,18 +1,21 @@
-def calculate_l_bd(diameter_s, f_ck, c_d,k_cp,sigma_sd):
+def calculate_l_bd(diameter_s, f_ck, c_d,k_cp,sigma_sd,significant_transverse_pressure = False):
     """
-    Calculate the anchorage length.
+    Calculate the anchorage length (SIA 262 5.2.5.6).
 
     Parameters:
     diameter_s (float): The diameter of the reinforcement [mm].
     f_ck (float): The characteristic compressive strength of concrete [MPa].
-    c_d (float): The design compressive strength of concrete [mm].
-    k_cp (float): A coefficient related to the concrete properties.
+    c_d (float): The design concrete cover (SIA 262 5.2.5.3) [mm].
+    k_cp (float): A coefficient related to the concrete properties [1 = Good to 1.4 = Poor].
     sigma_sd (float, optional): The design tensile stress [MPa]. Defaults to f_sd.
+    significant_transverse_pressure (bool, optional): Indicates if there is significant transverse pressure, if there is one, the l_bd can be reduced by 15 times the diameter_s (SAI 262 5.2.5.8). Defaults to False.
 
     Returns:
     float: The anchorage length.
     """
     l_bd =max(50 *k_cp * diameter_s * ((sigma_sd/435)**(3/2)) *((25/f_ck)**(1/2)) *((diameter_s/20)**(1/3)) * (((1.5 * diameter_s)/c_d)**(1/2)),10 * diameter_s)
+    if significant_transverse_pressure:
+        l_bd = max(l_bd - 15 * diameter_s, 10 * diameter_s)
     return l_bd
 
 def calculate_c_d(c_s,c_x,c_y,diameter_s):

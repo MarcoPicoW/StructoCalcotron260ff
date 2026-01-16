@@ -213,7 +213,8 @@ __marimo__/
 *.pdf
 *.fls
 *.fdb_latexmk
-
+*.log
+*.aux
 # OS junk
 .DS_Store
 Thumbs.db

@@ -3,6 +3,10 @@
 \tikzset{every node/.style={font=\footnotesize}}
 
 \newcommand{\h}{1.6}
+\newcommand{\dicke}{0.6}
+
+\pgfmathsetmacro{\hminus}{\h - \dicke/2}
+\pgfmathsetmacro{\hplus}{\h + \dicke/2}
 
 \tikzset{
   pics/FZRS/.style={

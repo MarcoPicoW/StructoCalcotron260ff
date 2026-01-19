@@ -1,0 +1,273 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{stanli}
+\usetikzlibrary{calc,patterns}
+\tikzset{every node/.style={font=\footnotesize}}
+
+% =========================================================
+% === BLOCCO 1 (DISEGNO SOPRA)
+% =========================================================
+\newcommand{\h}{1.6}
+\newcommand{\dicke}{0.6}
+\newcommand{\sq}{0.2}
+\newcommand{\posnot}{0.215}
+\pgfmathsetmacro{\NSA}{-\h/cot(35)}
+\pgfmathsetmacro{\LQuer}{(\h*tan(35))+0.2}
+\pgfmathsetmacro{\LLi}{(2*\h*tan(35))+1.6}
+\pgfmathsetmacro{\hminus}{\h - \dicke/2}
+\pgfmathsetmacro{\hplus}{\h + \dicke/2}
+\pgfmathtruncatemacro{\hcm}{\h*100}
+\pgfmathsetmacro{\diagonalx}{\hplus/cot(35)}
+
+\tikzset{
+  pics/square/.style={
+    code={
+      \draw[red, thick,fill=white] (0.2,0.2) rectangle (-0.2,-0.2);
+    }
+  },
+  pics/square_dashed/.style={
+    code={
+      \draw[red, thick, dashed,fill=white] (0.2,0.2) rectangle (-0.2,-0.2);
+    }
+  },
+  pics/square_light/.style={
+    code={
+      \draw[white, thick] (0.2,0.2) rectangle (-0.2,-0.2);
+      \draw[red, thick,opacity=0.5,fill=white] (0.2,0.2) rectangle (-0.2,-0.2);
+    }
+  },
+  pics/square_dashed_light/.style={
+    code={
+      \draw[white, thick] (0.2,0.2) rectangle (-0.2,-0.2);
+      \draw[red, thick, dashed,opacity=0.5,fill=white] (0.2,0.2) rectangle (-0.2,-0.2);
+    }
+  },
+  pics/green_line/.style={
+    code={
+      \draw[green!50!black, thick] (-\LQuer,0) -- (\LQuer,0);
+      \begin{scope}[color=green!50!black,opacity=0.5]
+        \dimensioning{1}{-\LQuer,0}{\LQuer,0}{-0.7}[$L_{Quer}$];
+      \end{scope}
+    }
+  },
+  pics/square_blue/.style={
+    code={
+      \draw[blue, thick] (0,0) rectangle (1,\LLi);
+      \begin{scope}[color=blue,opacity=0.5]
+        \dimensioning{2}{0,0}{1,\LLi}{-0.2}[$L_{Li}$];
+        \dimensioning{1}{0,0}{1,0}{\LLi+0.2 }[$NS = 100$];
+      \end{scope}
+    }
+  },
+  pics/FZRS/.style={
+    code={
+      \draw[thin] (0,0.7) -- (0.3,0.7);
+      \draw[thin] (0,1) -- (0.5,1);
+
+      \draw[thin] (0,0.725) -- (0.3,0.725);
+      \draw[thin] (0,0.975) -- (0.3,0.975);
+
+      \draw[thin] (0,1) -- (0,0.7);
+
+      \draw[thin] (0.025,0.975) -- (0.025,0.725);
+
+      \draw[thin] (0.5,1) -- (0.5,0);
+      \draw[thin] (0.3,1) -- (0.3,0);
+
+      \draw[thin] (0.475,1) -- (0.475,0);
+      \draw[thin] (0.325,1) -- (0.325,0);
+    }
+  },
+  pics/diagonaltotheright/.style={
+    code={ \draw[red, thin] (0,0) -- (\diagonalx,-\hplus); }
+  },
+  pics/diagonaltotheleft/.style={
+    code={ \draw[red, thin] (0,0) -- (-\diagonalx,-\hplus); }
+  }
+}
+
+\begin{document}
+
+% =========================================================
+% === DISEGNO SOPRA
+% =========================================================
+\begin{tikzpicture}
+\scaling{1}
+
+\point{SN1}{-0.8}{0}
+\point{S0}{0}{0}
+\point{S1}{0.55}{0}
+\point{D1}{0.6}{0.3}
+\point{D2}{0.9}{0.3}
+\point{S2}{0.95}{0}
+\point{alpha}{1.1}{-0.7}
+\point{S3}{2.55}{0}
+\point{C1}{2.6}{0.3}
+\point{C2}{2.9}{0.3}
+\point{S4}{2.95}{0}
+\point{S5}{3}{0}
+\point{S6}{3.05}{0}
+\point{B1}{3.1}{0.3}
+\point{B2}{3.4}{0.3}
+\point{S7}{3.45}{0}
+\point{S8}{5.05}{0}
+\point{A1}{5.10}{0.3}
+\point{A2}{5.4}{0.3}
+\point{S9}{5.45}{0}
+\point{S10}{6}{0}
+\point{S11}{6.8}{0}
+\point{cm2}{7}{2}
+
+\point{NS1}{5.05+\NSA}{-\h}
+\point{NS2}{6.05+\NSA}{-\h}
+
+\point{FBP_Oben_Links}{-0.8}{-\hminus}
+\point{FBP_Oben_Rechts}{6.8}{-\hminus}
+
+\point{FBP_Mitte_Links}{-0.8}{-\h}
+\point{FBP_Mitte_Rechts}{6.8}{-\h}
+
+\point{FBP_Unten_Links}{-0.8}{-\hplus}
+\point{FBP_Unten_Rechts}{6.8}{-\hplus}
+
+% Strasselinien
+\beam{2}{SN1}{S11}
+\begin{scope}[color=gray]
+  \beam{3}{FBP_Oben_Links}{FBP_Oben_Rechts}
+  \beam{3}{FBP_Unten_Links}{FBP_Unten_Rechts}
+\end{scope}
+\beam{2}{FBP_Mitte_Links}{FBP_Mitte_Rechts}
+
+% Loads
+\begin{scope}[color=red]
+  \lineload{1}{S1}{S2}[0.4][0.4][0.5];
+  \lineload{1}{S3}{S4}[0.4][0.4][0.5];
+  \lineload{1}{S6}{S7}[0.4][0.4][0.5];
+  \lineload{1}{S8}{S9}[0.4][0.4][0.5];
+
+  \notation{1}{S2}{$\frac{Q_{k2}}{2}$}[above right]
+  \notation{1}{S3}{$\frac{Q_{k2}}{2}$}[above left]
+  \notation{1}{S7}{$\frac{Q_{k1}}{2}$}[above right]
+  \notation{1}{S8}{$\frac{Q_{k1}}{2}$}[above left]
+  \notation{4}{A1}{A2}[\tiny{(A)}]
+  \notation{4}{B1}{B2}[\tiny{(B)}]
+  \notation{4}{C1}{C2}[\tiny{(C)}]
+  \notation{4}{D1}{D2}[\tiny{(D)}]
+\end{scope}
+
+% Quote
+\dimensioning{1}{S0}{S1}{1.1}[55];
+\dimensioning{1}{S1}{S2}{1.1}[40];
+\dimensioning{1}{S2}{S3}{1.1}[160];
+\dimensioning{1}{S3}{S4}{1.1}[40];
+\dimensioning{1}{S4}{S6}{1.1};
+\dimensioning{1}{S6}{S7}{1.1}[40];
+\dimensioning{1}{S7}{S8}{1.1}[160];
+\dimensioning{1}{S8}{S9}{1.1}[40];
+\dimensioning{1}{S9}{S10}{1.1}[55];
+
+\dimensioning{1}{S0}{S5}{1.7}[300];
+\dimensioning{1}{S5}{S10}{1.7}[300];
+\dimensioning{3}{S5}{S0}{-2.3}[Fiktive Fahrstreife 2];
+\dimensioning{3}{S10}{S5}{-2.3}[Fiktive Fahrstreife 1];
+
+% Simboli + diagonali
+\pic at (S10) {FZRS};
+\pic at (S2)  {diagonaltotheright};
+\draw[thin,dashed] (0.95,0) -- (0.95,-1);
+\draw[thick] (0.95,-0.8) arc (270:300:1);
+\draw[thick] (0.95,-0.8) arc (270:265:1);
+\notation{1}{alpha}{$\alpha$}[above]
+
+\pic at (S4) {diagonaltotheright};
+\pic at (S7) {diagonaltotheright};
+\pic at (S9) {diagonaltotheright};
+\pic at (S1) {diagonaltotheleft};
+\pic at (S3) {diagonaltotheleft};
+\pic at (S6) {diagonaltotheleft};
+\pic at (S8) {diagonaltotheleft};
+
+\notation{1}{cm2}{$[cm]$}[above]
+\begin{scope}[color=blue]
+\dimensioning{1}{NS1}{NS2}{-\hminus}[$NS =100$];
+\end{scope}
+\dimensioning{2}{S11}{FBP_Mitte_Rechts}{6}[$h_1=$\hcm];
+
+\end{tikzpicture}
+
+
+
+
+\vspace{10mm}
+
+% =========================================================
+% === DISEGNO SOTTO
+% =========================================================
+\begin{tikzpicture}
+\scaling{1}
+
+\point{A}{0}{0}
+\point{B}{-2}{0}
+\point{C}{-2.5}{0}
+\point{D}{-4.5}{0}
+\point{ABtop}{0}{1.2}
+\point{BBtop}{-2}{1.2}
+\point{CBtop}{-2.5}{1.2}
+\point{DBtop}{-4.5}{1.2}
+\point{Blue_square_bottom_left}{\NSA}{-\LQuer}
+
+\point{cm1}{0.5}{2}
+\notation{1}{cm1}{$[cm]$}[above]
+
+% Quadrato blu
+\pic at (Blue_square_bottom_left) {square_blue};
+
+% Linea verde orizzontale
+\pic at (B) {green_line};
+
+% Quadrati rossi
+\pic at (A) {square};
+\pic at (B) {square};
+\pic at (C) {square_dashed};
+\pic at (D) {square_dashed};
+
+\begin{scope}[color=red]
+  \notation{1}{A}{\tiny(A)}[above = -\posnot]
+  \notation{1}{B}{\tiny(B)}[above = -\posnot]
+  \notation{1}{C}{\tiny(C)}[above = -\posnot]
+  \notation{1}{D}{\tiny(D)}[above = -\posnot]
+\end{scope}
+
+% Quadrati rossi chiari
+\pic at (ABtop) {square_light};
+\pic at (BBtop) {square_light};
+\pic at (CBtop) {square_dashed_light};
+\pic at (DBtop) {square_dashed_light};
+
+\begin{scope}[color=red,opacity=0.5]
+  \notation{1}{ABtop}{\tiny(A)}[above = -\posnot]
+  \notation{1}{BBtop}{\tiny(B)}[above = -\posnot]
+  \notation{1}{CBtop}{\tiny(C)}[above = -\posnot]
+  \notation{1}{DBtop}{\tiny(D)}[above = -\posnot]
+\end{scope}
+
+% Quote
+\point{ADL}{0.2}{0}
+\point{ADR}{-0.2}{0}
+\point{BDL}{-1.8}{0}
+\point{BDR}{-2.2}{0}
+\dimensioning{1}{ADL}{ADR}{1.7}[$40$];
+\dimensioning{1}{BDL}{ADR}{1.7}[$160$];
+\dimensioning{1}{BDL}{BDR}{1.7}[$40$];
+
+\point{ABb}{0}{-0.2}
+\point{ATt}{0}{0.2}
+\point{ABBb}{0}{1}
+\point{ABTt}{0}{1.4}
+
+\dimensioning{2}{ATt}{ABb}{0.5}[$40$];
+\dimensioning{2}{ABBb}{ATt}{0.5}[$80$];
+\dimensioning{2}{ABTt}{ABBb}{0.5}[$40$];
+
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,141 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{stanli}
+\usetikzlibrary{calc,patterns}
+\tikzset{every node/.style={font=\footnotesize}}
+
+% -------------------------
+% Parametri (in "unità stanli": 1 = 1 cm nel tuo schema mentale)
+% -------------------------
+
+\newcommand{\h}{1.8}
+\newcommand{\dicke}{0.6}
+\newcommand{\sq}{0.2}
+\newcommand{\posnot}{0.215}
+\pgfmathsetmacro{\NSA}{-\h/cot(35)}
+\pgfmathsetmacro{\NSB}{\NSA + 1}
+\pgfmathsetmacro{\LQuer}{(\h*tan(35))+0.2}
+\pgfmathsetmacro{\LLi}{(2*\h*tan(35))+1.6}
+
+
+\tikzset{
+  pics/square/.style={
+    code={
+    \draw[red, thick,fill=white] (0.2,0.2) rectangle (-0.2,-0.2);
+    }
+  },
+  pics/square_dashed/.style={
+    code={
+    \draw[red, thick, dashed,fill=white] (0.2,0.2) rectangle (-0.2,-0.2);
+    }
+  },
+  pics/square_light/.style={
+    code={
+    \draw[white, thick] (0.2,0.2) rectangle (-0.2,-0.2);
+    \draw[red, thick,opacity=0.5] (0.2,0.2) rectangle (-0.2,-0.2);
+    }
+  },
+  pics/square_dashed_light/.style={
+    code={
+    \draw[white, thick] (0.2,0.2) rectangle (-0.2,-0.2);
+    \draw[red, thick, dashed,opacity=0.5] (0.2,0.2) rectangle (-0.2,-0.2);
+    }
+  },
+  pics/green_line/.style={
+    code={
+    \draw[green!50!black, thick] (-\LQuer,0) -- (\LQuer,0);
+    \begin{scope}[color=green!50!black,opacity=0.5]
+    \dimensioning{1}{-\LQuer,0}{\LQuer,0}{-0.7}[$L_{Quer}$];
+    \end{scope}
+    }
+  },
+  pics/square_blue/.style={
+    code={
+    \draw[blue, thick] (0,0) rectangle (1,\LLi);
+    \begin{scope}[color=blue,opacity=0.5]
+    \dimensioning{2}{0,0}{1,\LLi}{-0.2}[$L_{Li}$];
+    \dimensioning{1}{0,0}{1,0}{\LLi+0.2 }[$100$];
+
+    \end{scope}
+    }
+  },
+}
+\begin{document}
+\begin{tikzpicture}
+\scaling{1}
+
+% -------------------------
+% Def Point
+% -------------------------
+\point{A}{0}{0}
+\point{B}{-2}{0}
+\point{C}{-2.5}{0}
+\point{D}{-4.5}{0}
+\point{AB}{0}{1.2}
+\point{BB}{-2}{1.2}
+\point{CB}{-2.5}{1.2}
+\point{DB}{-4.5}{1.2}
+\point{Blue_square_bottom_left}{\NSA}{-\LQuer}
+
+\point{cm}{0.5}{2}
+\notation{1}{cm}{$[cm]$}[above]
+% -------------------------
+% Quadrato blu
+% -------------------------
+\pic at (Blue_square_bottom_left) {square_blue};
+
+% -------------------------
+% Linea verde orizzontale
+% -------------------------
+\pic at (B) {green_line};
+
+% -------------------------
+% Quadrati rossi
+% -------------------------
+\pic at (A) {square};
+\pic at (B) {square};
+\pic at (C) {square_dashed};
+\pic at (D) {square_dashed};
+
+\begin{scope}[color=red]
+\notation{1}{A}{\tiny(A)}[above = -\posnot]
+\notation{1}{B}{\tiny(B)}[above = -\posnot]
+\notation{1}{C}{\tiny(C)}[above = -\posnot]
+\notation{1}{D}{\tiny(D)}[above = -\posnot]
+\end{scope}
+
+% -------------------------
+% Quadrati rossi chiari
+% -------------------------
+\pic at (AB) {square_light};
+\pic at (BB) {square_light};
+\pic at (CB) {square_dashed_light};
+\pic at (DB) {square_dashed_light};
+
+\begin{scope}[color=red,opacity=0.5]
+\notation{1}{AB}{\tiny(A)}[above = -\posnot]
+\notation{1}{BB}{\tiny(B)}[above = -\posnot]
+\notation{1}{CB}{\tiny(C)}[above = -\posnot]
+\notation{1}{DB}{\tiny(D)}[above = -\posnot]
+\end{scope}
+
+% -------------------------
+% Quote per misure e misure
+% -------------------------
+\point{ADL}{0.2}{0}
+\point{ADR}{-0.2}{0}
+\point{BDL}{-1.8}{0}
+\point{BDR}{-2.2}{0}
+\dimensioning{1}{ADL}{ADR}{1.7}[$40$];
+\dimensioning{1}{BDL}{ADR}{1.7}[$160$];
+\dimensioning{1}{BDL}{BDR}{1.7}[$40$];
+
+\point{AB}{0}{-0.2}
+\point{AT}{0}{0.2}
+\point{ABB}{0}{1}
+\point{ABT}{0}{1.4}
+
+\dimensioning{2}{AT}{AB}{0.5}[$40$];
+\dimensioning{2}{ABB}{AT}{0.5}[$80$];
+\dimensioning{2}{ABT}{ABB}{0.5}[$40$];
+\end{tikzpicture}
+\end{document}

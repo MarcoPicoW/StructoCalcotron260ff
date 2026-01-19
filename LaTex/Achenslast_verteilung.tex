@@ -7,6 +7,8 @@
 
 \pgfmathsetmacro{\hminus}{\h - \dicke/2}
 \pgfmathsetmacro{\hplus}{\h + \dicke/2}
+\pgfmathtruncatemacro{\hcm}{\h*100}
+
 
 \tikzset{
   pics/FZRS/.style={
@@ -48,18 +50,36 @@
 \point{SN1}{-0.8}{0}
 \point{S0}{0}{0}
 \point{S1}{0.55}{0}
+\point{D1}{0.6}{0.3}
+\point{D2}{0.9}{0.3}
 \point{S2}{0.95}{0}
 \point{alpha}{1.1}{-0.7}
 \point{S3}{2.55}{0}
+\point{C1}{2.6}{0.3}
+\point{C2}{2.9}{0.3}
 \point{S4}{2.95}{0}
 \point{S5}{3}{0}
 \point{S6}{3.05}{0}
+\point{B1}{3.1}{0.3}
+\point{B2}{3.4}{0.3}
 \point{S7}{3.45}{0}
 \point{S8}{5.05}{0}
+\point{A1}{5.10}{0.3}
+\point{A2}{5.4}{0.3}
 \point{S9}{5.45}{0}
 \point{S10}{6}{0}
 \point{S11}{6.8}{0}
+\point{cm}{7}{2}
 
+\point{FBP_Oben_Links}{-0.8}{-\hminus}
+\point{FBP_Oben_Rechts}{6.8}{-\hminus}
+
+\point{FBP_Mitte_Links}{-0.8}{-\h}
+\point{FBP_Mitte_Rechts}{6.8}{-\h}
+
+
+\point{FBP_Unten_Links}{-0.8}{-\hplus}
+\point{FBP_Unten_Rechts}{6.8}{-\hplus}
 
 %\notation{6}{SN1}{+}
 %\notation{6}{S0}{+}
@@ -83,20 +103,30 @@
 
 %Strasselinien
 \beam{2}{SN1}{S11}
-
+\begin{scope}[color=gray]
+\beam{3}{FBP_Oben_Links}{FBP_Oben_Rechts}
+\beam{3}{FBP_Unten_Links}{FBP_Unten_Rechts}
+\end{scope}
+\beam{2}{FBP_Mitte_Links}{FBP_Mitte_Rechts}
 
 %%Loads
 \begin{scope}[color=red]
-\lineload{1}{S1}{S2}[0.5][0.5][0.33];
-\lineload{1}{S3}{S4}[0.5][0.5][0.33];
-\lineload{1}{S6}{S7}[0.5][0.5][0.33];
-\lineload{1}{S8}{S9}[0.5][0.5][0.33];
+\lineload{1}{S1}{S2}[0.4][0.4][0.5];
+\lineload{1}{S3}{S4}[0.4][0.4][0.5];
+\lineload{1}{S6}{S7}[0.4][0.4][0.5];
+\lineload{1}{S8}{S9}[0.4][0.4][0.5];
 %NameLoads
 \notation{1}{S2}{$\frac{Q_{k2}}{2}$}[above right]
 \notation{1}{S3}{$\frac{Q_{k2}}{2}$}[above left]
 \notation{1}{S7}{$\frac{Q_{k1}}{2}$}[above right]
 \notation{1}{S8}{$\frac{Q_{k1}}{2}$}[above left]
+\notation{4}{A1}{A2}[\tiny{(A)}]
+\notation{4}{B1}{B2}[\tiny{(B)}]
+\notation{4}{C1}{C2}[\tiny{(C)}]
+\notation{4}{D1}{D2}[\tiny{(D)}]
+
 \end{scope}
+
 \dimensioning{1}{S0}{S1}{1.1}[55];
 \dimensioning{1}{S1}{S2}{1.1}[40];
 \dimensioning{1}{S2}{S3}{1.1}[160];
@@ -114,9 +144,13 @@
 \dimensioning{3}{S10}{S5}{-2.3}[Fiktive Fahrstreife 1];
 
 
+
+
 \pic at (S10) {FZRS};
 \pic at (S2) {diagonaltotheright};
-\draw[red, thin,dashed] (0.95,0) -- (0.95,-4);
+\draw[thin,dashed] (0.95,0) -- (0.95,-4);
+\draw[thick, -] (0.95,-0.8) arc (270:305:1);
+\draw[thick, -] (0.95,-0.8) arc (270:265:1);
 \notation{1}{alpha}{$\alpha$}[above]
 \pic at (S4) {diagonaltotheright};
 \pic at (S7) {diagonaltotheright};
@@ -126,7 +160,9 @@
 \pic at (S6) {diagonaltotheleft};
 \pic at (S8) {diagonaltotheleft};
 
+\notation{1}{cm}{$[cm]$}[above]
 
+\dimensioning{2}{S11}{FBP_Mitte_Rechts}{6}[\hcm];
 
 
 

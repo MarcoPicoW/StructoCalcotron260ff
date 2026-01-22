@@ -6,8 +6,8 @@
 % =========================================================
 % === BLOCCO 1 (DISEGNO SOPRA)
 % =========================================================
-\providecommand{\h}{0.5}     % valore di default
-\providecommand{\dicke}{0.4}
+\providecommand{\h}{2.2}     % valore di default
+\providecommand{\dicke}{0.6}
 \newcommand{\sq}{0.2}
 \newcommand{\posnot}{0.215}
 \pgfmathsetmacro{\NSA}{-\h/cot(35)}
@@ -16,37 +16,44 @@
 \pgfmathsetmacro{\hminus}{\h - \dicke/2}
 \pgfmathsetmacro{\hplus}{\h + \dicke/2}
 \pgfmathtruncatemacro{\hcm}{\h*100}
-\pgfmathsetmacro{\diagonalx}{\hplus/cot(35)}
+\pgfmathsetmacro{\diagonalx}{\hplus*tan(35)}
 
 \tikzset{
   pics/square/.style={
     code={
-      \draw[red, thick,fill=white] (0.2,0.2) rectangle (-0.2,-0.2);
+      \draw[white, thick,fill=white,opacity=0.5] (0.2,0.2) rectangle (-0.2,-0.2);
+      \draw[red, thick] (0.2,0.2) rectangle (-0.2,-0.2);
     }
   },
   pics/square_dashed/.style={
     code={
-      \draw[red, thick, dashed,fill=white] (0.2,0.2) rectangle (-0.2,-0.2);
+      \draw[white, thick,fill=white,opacity=0.5] (0.2,0.2) rectangle (-0.2,-0.2);
+      \draw[red, thick, dashed] (0.2,0.2) rectangle (-0.2,-0.2);
     }
   },
   pics/square_light/.style={
     code={
-      \draw[white, thick] (0.2,0.2) rectangle (-0.2,-0.2);
-      \draw[red, thick,opacity=0.5,fill=white] (0.2,0.2) rectangle (-0.2,-0.2);
+      %\draw[white, thick] (0.2,0.2) rectangle (-0.2,-0.2);
+      \draw[red, thick,opacity=0.5] (0.2,0.2) rectangle (-0.2,-0.2);
     }
   },
   pics/square_dashed_light/.style={
     code={
-      \draw[white, thick] (0.2,0.2) rectangle (-0.2,-0.2);
-      \draw[red, thick, dashed,opacity=0.5,fill=white] (0.2,0.2) rectangle (-0.2,-0.2);
+      %\draw[white, thick] (0.2,0.2) rectangle (-0.2,-0.2);
+      \draw[red, thick, dashed,opacity=0.5] (0.2,0.2) rectangle (-0.2,-0.2);
     }
   },
-  pics/green_line/.style={
+  pics/L_Quer_line_mes/.style={
     code={
-      \draw[green!50!black, thick] (-\LQuer,0) -- (\LQuer,0);
-      \begin{scope}[color=green!50!black,opacity=0.5]
+      \draw[red!90!black, thick] (-\LQuer,0) -- (\LQuer,0);
+      \begin{scope}[color=red!90!black,opacity=0.5]
         \dimensioning{1}{-\LQuer,0}{\LQuer,0}{-0.7}[$L_{Quer}$];
       \end{scope}
+    }
+  },  
+  pics/L_Quer_line/.style={
+    code={
+      \draw[red!90!black, thick] (-\LQuer,0) -- (\LQuer,0);
     }
   },
   pics/square_blue/.style={
@@ -213,7 +220,7 @@
 \point{BBtop}{-2}{1.2}
 \point{CBtop}{-2.5}{1.2}
 \point{DBtop}{-4.5}{1.2}
-\point{Blue_square_bottom_left}{\NSA}{-\LQuer}
+\point{Blue_square_bottom_left}{-\LQuer}{\NSA}
 
 \point{cm1}{0.5}{2}
 \notation{1}{cm1}{$[cm]$}[above]
@@ -222,7 +229,10 @@
 \pic at (Blue_square_bottom_left) {square_blue};
 
 % Linea verde orizzontale
-\pic at (B) {green_line};
+\pic at (B) {L_Quer_line_mes};
+%\pic at (0,-0.2){L_Quer_line};
+%\pic at (-2.5,0.1){L_Quer_line};
+%\pic at (-4.5,0.2){L_Quer_line};
 
 % Quadrati rossi
 \pic at (A) {square};

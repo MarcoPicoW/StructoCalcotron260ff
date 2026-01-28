@@ -32,4 +32,4 @@ def calculate_v_Rd_nosteel(tau_cd,d,d_v,f_ck,f_sd = 435,torque_rate = 1,E_s = 20
 
 
 if __name__ == "__main__":
-    calculate_v_Rd_nosteel
+    calculate_v_Rd_nosteel()
